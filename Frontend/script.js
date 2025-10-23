@@ -51,7 +51,7 @@ function initializeCountdown() {
     const countdownMessage = document.querySelector('.countdown-message');
     
     // Set countdown to 3 hours (3 * 60 * 60 seconds)
-    let totalSeconds = 2*60*60;
+    let totalSeconds = 10;
     
     function updateCountdown() {
         const hours = Math.floor(totalSeconds / 3600);
