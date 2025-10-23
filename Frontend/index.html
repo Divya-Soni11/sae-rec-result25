@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAE UIET Recruitment Results 2025</title>
+    <link rel="icon" type="image/x-icon" href="SAE_Logo.ico">
+    <link rel="stylesheet" href="style.css">
+    <!-- Add these new CDN links -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Animated Background Elements -->
+    <div class="animated-bg">
+        <div class="floating-shape shape-1"></div>
+        <div class="floating-shape shape-2"></div>
+        <div class="floating-shape shape-3"></div>
+        <div class="floating-shape shape-4"></div>
+    </div>
+
+    <!-- Particle Container -->
+    <div id="particles-js"></div>
+
+    <div class="container">
+        <!-- Header Section with Enhanced Animation -->
+        <header class="header animate_animated animate_fadeInDown">
+            <div class="logo">
+                <div class="logo-icon">
+                    <img src="SAE_Logo_Edit.png" alt="SAE Logo">
+                </div>
+                <h1>SAE UIET</h1>
+                <p>Society of Automotive Engineers</p>
+                <p>Panjab University</p>
+            </div>
+            <div class="header-content">
+                <h2 class="typing-animation">Recruitment Results 2025</h2>
+                <p>Check your selection status</p>
+            </div>
+            <div class="scanning-line"></div>
+        </header>
+                <!-- Countdown Timer Section -->
+        <section class="countdown-section animate_animated animate_fadeInDown">
+            <div class="countdown-container">
+                <h3>Results Will Be Live In:</h3>
+                <div class="countdown-timer">
+                    <div class="time-unit">
+                        <span class="time-number" id="hours">03</span>
+                        <span class="time-label">Hours</span>
+                    </div>
+                    <div class="time-separator">:</div>
+                    <div class="time-unit">
+                        <span class="time-number" id="minutes">00</span>
+                        <span class="time-label">Minutes</span>
+                    </div>
+                    <div class="time-separator">:</div>
+                    <div class="time-unit">
+                        <span class="time-number" id="seconds">00</span>
+                        <span class="time-label">Seconds</span>
+                    </div>
+                </div>
+                <p class="countdown-message">Stay tuned! Results will be available soon</p>
+            </div>
+        </section>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Search Form Section (hidden until countdown ends) -->
+            <section class="search-section animate_animated animate_fadeInUp" id="searchSection" style="display: none;">
+                <div class="form-container">
+                    <div class="section-title">
+                        <div class="pulse-dot"></div>
+                        <h3>Check Your Result</h3>
+                    </div>
+                    <form id="searchForm" class="search-form">
+                        <div class="form-group">
+                            <label for="name">
+                                <span class="label-icon">👤</span>
+                                Full Name:
+                            </label>
+                            <input type="text" id="name" name="name" required 
+                                   placeholder="Enter your full name as applied">
+                            <div class="input-focus-line"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">
+                                <span class="label-icon">📱</span>
+                                Phone Number:
+                            </label>
+                            <input type="tel" id="phone" name="phone" required 
+                                   placeholder="Enter your phone number">
+                            <div class="input-focus-line"></div>
+                        </div>
+                        <button type="submit" class="btn-primary">
+                            <span class="btn-text">Check Result</span>
+                            <div class="btn-shine"></div>
+                            <div class="btn-particles"></div>
+                        </button>
+                    </form>
+                </div>
+            </section>
+
+            <!-- Results Section with Cool Animations -->
+            <section id="resultsSection" class="results-section hidden">
+                <div class="result-card animate__animated">
+                    <div class="result-header">
+                        <div class="result-icon"></div>
+                        <h3 id="resultTitle">Selection Status</h3>
+                    </div>
+                    <div id="resultContent">
+                        <!-- Results will be displayed here -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Domains Info with Hover Animations -->
+            <section class="domains-section animate_animated animate_fadeInUp">
+                <div class="section-title">
+                    <div class="pulse-dot"></div>
+                    <h3>Our Domains</h3>
+                </div>
+                <div class="domains-grid">
+                    <div class="domain-card software" data-domain="software">
+                        <div class="card-glow"></div>
+                        <div class="domain-icon"><img src="AlphaOneLogo.png" alt="AlphaOne Logo"></div>
+                        <h4>Software</h4>
+                        <p>Software development and embedded systems</p>
+                        <div class="card-hover-effect"></div>
+                    </div>
+                    <div class="domain-card robotics" data-domain="robotics">
+                        <div class="card-glow"></div>
+                        <div class="domain-icon"><img src="AbhedyaLogo.png" alt="Abhedya Logo"></div>
+                        <h4>Robotics</h4>
+                        <p>Robotics and automation systems</p>
+                        <div class="card-hover-effect"></div>
+                    </div>
+                    <div class="domain-card motorsports" data-domain="motorsports">
+                        <div class="card-glow"></div>
+                        <div class="domain-icon"><img src="GarudaLogo.png" alt="Garuda Logo"></div>
+                        <h4>Motorsports</h4>
+                        <p>Automotive design and racing</p>
+                        <div class="card-hover-effect"></div>
+                    </div>
+                    <div class="domain-card aerospace" data-domain="aerospace">
+                        <div class="card-glow"></div>
+                        <div class="domain-icon"><img src="VayuveerLogo.png" alt="Vayuveer Logo"></div>
+                        <h4>Aerospace</h4>
+                        <p>Aircraft and aerospace systems</p>
+                        <div class="card-hover-effect"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Stats Section -->
+            <section class="stats-section animate_animated animate_fadeInUp">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number" data-target="250">0</div>
+                        <div class="stat-label">Applications</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" data-target="4">0</div>
+                        <div class="stat-label">Domains</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" data-target="80">0</div>
+                        <div class="stat-label">Selected</div>
+                    </div>
+                </div>
+            </section>
+            
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer animate_animated animate_fadeInUp">
+            <div class="footer-content">
+                           <!-- Social Media Section -->
+            <section class="social-section animate_animated animate_fadeInUp">
+                <div class="section-title">
+                    <div class="pulse-dot"></div>
+                    <h3>Connect With Us</h3>
+                </div>
+                <div class="social-grid">
+                    <a href="https://www.instagram.com/sae.uiet.pu/" target="_blank" class="social-card instagram">
+                        <div class="social-icon">
+                            <svg viewBox="0 0 24 24" width="40" height="40">
+                                <path fill="currentColor" d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8A1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5a5 5 0 0 1-5 5a5 5 0 0 1-5-5a5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3z"/>
+                            </svg>
+                        </div>
+                        <div class="social-content">
+                            <h4>Instagram</h4>
+                            <p>@sae.uiet.pu</p>
+                        </div>
+                        <div class="social-hover-effect"></div>
+                    </a>
+
+                    <a href="https://in.linkedin.com/company/sae-uiet-pu" target="_blank" class="social-card linkedin">
+                        <div class="social-icon">
+                            <svg viewBox="0 0 24 24" width="40" height="40">
+                                <path fill="currentColor" d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+                            </svg>
+                        </div>
+                        <div class="social-content">
+                            <h4>LinkedIn</h4>
+                            <p>SAE UIET PU</p>
+                        </div>
+                        <div class="social-hover-effect"></div>
+                    </a>
+
+                    <a href="https://www.youtube.com/@SAEUIETPU" target="_blank" class="social-card youtube">
+                        <div class="social-icon">
+                            <svg viewBox="0 0 24 24" width="40" height="40">
+                                <path fill="currentColor" d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9c.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83c-.25.9-.83 1.48-1.73 1.73c-.47.13-1.33.22-2.65.28c-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44c-.9-.25-1.48-.83-1.73-1.73c-.13-.47-.22-1.1-.28-1.9c-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83c.25-.9.83-1.48 1.73-1.73c.47-.13 1.33-.22 2.65-.28c1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44c.9.25 1.48.83 1.73 1.73z"/>
+                            </svg>
+                        </div>
+                        <div class="social-content">
+                            <h4>YouTube</h4>
+                            <p>@SAEUIETPU</p>
+                        </div>
+                        <div class="social-hover-effect"></div>
+                    </a>
+                </div>
+                
+                <div class="social-cta">
+                    <p>🚀 Follow us for updates on events, workshops, and recruitment!</p>
+                </div>
+            </section>
+            </div>
+            <div class="footer-wave"></div>
+
+            <div class="closingLine" style="font-size: smaller; color: white;">Made with ❤️ by AlphaOne</div>
+        </footer>
+    </div>
+
+    <!-- Confetti Container -->
+    <div id="confetti-container"></div>
+
+    <!-- Add these scripts at the bottom -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
