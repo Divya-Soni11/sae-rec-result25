@@ -29,13 +29,12 @@ mongoose.connect(mongoUri, {
 .catch((err) => console.error('MongoDB connection error:', err));
 
 // Fix 3: Update CORS to allow all origins in production
-const allowedOrigins = [
+const allowedOrigins=[
   'http://127.0.0.1:5500',
-  'https://localhost:3000',
-  'https://localhost:5000', 
+  'https://localhost:3000', 
+  'https://localhost:5000',
   'https://localhost:8000',
-  'https://sae-rec-result25.netlify.app', // Your future frontend URL
-  'http://localhost:3000' // Add this for local development
+  'https://sae-rec-result25.netlify.app'  // ← ADD THIS LINE
 ];
 
 app.use(cors({
