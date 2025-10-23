@@ -5,6 +5,10 @@ const checkResult=async(req,res)=>{
     try{
         const{name,phone}=req.body;
 
+        console.log('=== DEBUG START ===');
+        console.log('Frontend sent - Name:', name, 'Phone:', phone, 'Type:', typeof phone);
+        console.log('Mongoose DB Name:', mongoose.connection.name);
+
         if(!name||!phone){
             return res.status(400).json({
                 message:'please fill in complete details.',
@@ -14,8 +18,10 @@ const checkResult=async(req,res)=>{
         // console.log('Mongoose DB Name:', mongoose.connection.name);
 
         const selected=await SelectedCandidate.findOne({phone});
-        // console.log('Searching phone:', phone, typeof phone);
-        // console.log('Query result:', selected);
+        console.log('Searching phone:', phone, typeof phone);
+        console.log('Query result:', selected);
+        console.log('=== DEBUG END ===');
+
 
 
 
