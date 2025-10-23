@@ -7,7 +7,6 @@ const checkResult=async(req,res)=>{
 
         console.log('=== DEBUG START ===');
         console.log('Frontend sent - Name:', name, 'Phone:', phone, 'Type:', typeof phone);
-        console.log('Mongoose DB Name:', mongoose.connection.name);
 
         if(!name||!phone){
             return res.status(400).json({
@@ -15,15 +14,15 @@ const checkResult=async(req,res)=>{
                 success:false
             });
         }
-        // console.log('Mongoose DB Name:', mongoose.connection.name);
 
-        const selected=await SelectedCandidate.findOne({phone});
-        console.log('Searching phone:', phone, typeof phone);
+        // FIX: Convert phone to number for database query
+        const phoneNumber = Number(phone);
+        console.log('Converted phone to number:', phoneNumber);
+
+        const selected=await SelectedCandidate.findOne({ phone: phoneNumber });
+        console.log('Searching phone:', phoneNumber, typeof phoneNumber);
         console.log('Query result:', selected);
         console.log('=== DEBUG END ===');
-
-
-
 
         if(!selected){
             return res.json({
