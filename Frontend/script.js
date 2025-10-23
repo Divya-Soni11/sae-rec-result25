@@ -50,24 +50,27 @@ function initializeCountdown() {
     const searchSection = document.getElementById('searchSection');
     const countdownMessage = document.querySelector('.countdown-message');
     
-        // FIX: Set to October 24, 2025, 11:00 AM Indian Standard Time
-    const targetDate = new Date('2025-10-24T11:00:00+05:30').getTime();
-
+     // FIX: Proper date for October 24, 2025, 11:00 AM IST
+    const targetDate = new Date('2025-10-24T05:30:00Z').getTime(); // 11:00 AM IST = 05:30 UTC
     
     function updateCountdown() {
         const now = new Date().getTime();
         const timeLeft = targetDate - now;
-        const totalSeconds = Math.floor(timeLeft / 1000);
+        
+        console.log('Time left:', timeLeft); // Debug log
         
         // If time is up, show results
-        if (totalSeconds <= 0) {
+        if (timeLeft <= 0) {
             countdownFinished();
             return;
         }
         
+        const totalSeconds = Math.floor(timeLeft / 1000);
         const hours = Math.floor(totalSeconds / 3600);
         const minutes = Math.floor((totalSeconds % 3600) / 60);
         const seconds = totalSeconds % 60;
+        
+
         
         // Update display with leading zeros
         hoursElement.textContent = hours.toString().padStart(2, '0');
