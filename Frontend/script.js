@@ -51,7 +51,7 @@ function initializeCountdown() {
     const countdownMessage = document.querySelector('.countdown-message');
     
     // Set countdown to 3 hours (3 * 60 * 60 seconds)
-    let totalSeconds = 10;
+    let totalSeconds = 2*60*60;
     
     function updateCountdown() {
         const hours = Math.floor(totalSeconds / 3600);
@@ -374,7 +374,7 @@ function checkSelection(name, phone) {
         createLoadingParticles(loadingParticles);
     }
 
-    fetch('http://localhost:8000/api/sae/results', {
+    fetch('https://sae-rec-result25.vercel.app/api/sae/results',{
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
