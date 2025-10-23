@@ -41,7 +41,6 @@
 
 
 
-// 3-Hour Countdown Timer
 function initializeCountdown() {
     const hoursElement = document.getElementById('hours');
     const minutesElement = document.getElementById('minutes');
@@ -50,27 +49,27 @@ function initializeCountdown() {
     const searchSection = document.getElementById('searchSection');
     const countdownMessage = document.querySelector('.countdown-message');
     
-     // FIX: Proper date for October 24, 2025, 11:00 AM IST
-    const targetDate = new Date('2025-10-24T05:30:00Z').getTime(); // 11:00 AM IST = 05:30 UTC
+    console.log('Countdown function started!');
+    
+    // FIX: Proper date calculation for October 24, 2025, 11:00 AM IST
+    const targetDate = new Date('October 24, 2025 11:00:00 GMT+05:30').getTime();
     
     function updateCountdown() {
         const now = new Date().getTime();
         const timeLeft = targetDate - now;
+        const totalSeconds = Math.floor(timeLeft / 1000);
         
-        console.log('Time left:', timeLeft); // Debug log
+        console.log('Time left:', timeLeft, 'Total seconds:', totalSeconds);
         
-        // If time is up, show results
-        if (timeLeft <= 0) {
+        // If time is up, show results (ONLY ONE CHECK NEEDED)
+        if (totalSeconds <= 0) {
             countdownFinished();
-            return;
+            return; // IMPORTANT: return here to stop execution
         }
         
-        const totalSeconds = Math.floor(timeLeft / 1000);
         const hours = Math.floor(totalSeconds / 3600);
         const minutes = Math.floor((totalSeconds % 3600) / 60);
         const seconds = totalSeconds % 60;
-        
-
         
         // Update display with leading zeros
         hoursElement.textContent = hours.toString().padStart(2, '0');
@@ -96,13 +95,9 @@ function initializeCountdown() {
             countdownMessage.textContent = '🎯 Final countdown! Almost live!';
         }
         
-        totalSeconds--;
-        
-        // When countdown reaches 0
-        if (totalSeconds < 0) {
-            countdownFinished();
-        }
+        // REMOVED THE DUPLICATE CHECK HERE - it was causing issues
     }
+
     
     // Update immediately and then every second
     updateCountdown();
