@@ -1104,3 +1104,141 @@ body {
     font-weight: bold;
     font-size: 1.5em;
 }
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+        margin: 10px;
+    }
+    
+    .header {
+        padding: 20px 15px;
+    }
+    
+    .logo h1 {
+        font-size: 1.8em;
+    }
+    
+    .header-content h2 {
+        font-size: 1.5em;
+    }
+    
+    .countdown-timer {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .time-unit {
+        margin: 0 5px;
+    }
+    
+    .time-number {
+        font-size: 2em;
+        padding: 15px;
+    }
+    
+    .domains-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .social-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .form-container {
+        padding: 20px 15px;
+    }
+    
+    .form-group input {
+        padding: 12px;
+        font-size: 16px; /* Prevents zoom on iOS */
+    }
+    
+    .btn-primary {
+        padding: 12px 24px;
+        font-size: 1.1em;
+    }
+    
+    .result-card {
+        padding: 20px 15px;
+        margin: 15px 0;
+    }
+    
+    .section-title h3 {
+        font-size: 1.3em;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo h1 {
+        font-size: 1.5em;
+    }
+    
+    .header-content h2 {
+        font-size: 1.2em;
+    }
+    
+    .time-number {
+        font-size: 1.8em;
+        padding: 12px;
+    }
+    
+    .time-label {
+        font-size: 0.8em;
+    }
+    
+    .countdown-message {
+        font-size: 0.9em;
+        padding: 0 10px;
+    }
+    
+    .domain-card, .social-card {
+        padding: 20px 15px;
+    }
+    
+    .stat-number {
+        font-size: 2em;
+    }
+    
+    .search-form {
+        padding: 15px;
+    }
+    
+    .selection-status {
+        padding: 15px;
+    }
+    
+    .encouragement-message ul {
+        padding-left: 15px;
+    }
+}
+
+/* Fix for mobile viewport */
+@media (max-width: 768px) {
+    .animated-bg .floating-shape {
+        display: none; /* Hide complex animations on mobile for better performance */
+    }
+    
+    #particles-js {
+        display: none; /* Hide particles on mobile for better performance */
+    }
+}
+
+/* Ensure proper touch targets */
+@media (max-width: 768px) {
+    .domain-card, .social-card, .btn-primary {
+        min-height: 44px; /* Minimum touch target size */
+    }
+    
+    input, button {
+        font-size: 16px; /* Prevents zoom on iOS */
+    }
+}
