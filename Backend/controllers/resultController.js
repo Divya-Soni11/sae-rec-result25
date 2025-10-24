@@ -25,7 +25,7 @@ const checkResult = async (req, res) => {
 
         if (!selected) {
             return res.json({
-                message: 'No student found with this phone number.',
+                message: 'rejected',
                 success: false
             });
         }
