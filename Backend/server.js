@@ -34,8 +34,7 @@ const allowedOrigins=[
   'https://localhost:3000', 
   'https://localhost:5000',
   'https://localhost:8000',
-  'https://sae-rec-result25.netlify.app',
-  'https://results.saeuietpu.in'
+  'https://sae-rec-result25.netlify.app'
 ];
 
 app.use(cors({
