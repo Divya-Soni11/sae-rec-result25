@@ -1,54 +1,68 @@
-import SelectedCandidate from'../models/candidateSchema.js';
-import mongoose from 'mongoose';
+import SelectedCandidate from '../models/candidateSchema.js';
 
-const checkResult=async(req,res)=>{
-    try{
-        const{name,phone}=req.body;
+const checkResult = async (req, res) => {
+    try {
+        const { name, phone } = req.body;
 
         console.log('=== DEBUG START ===');
         console.log('Frontend sent - Name:', name, 'Phone:', phone, 'Type:', typeof phone);
 
-        if(!name||!phone){
+        if (!name || !phone) {
             return res.status(400).json({
-                message:'please fill in complete details.',
-                success:false
+                message: 'Please fill in complete details.',
+                success: false
             });
         }
 
-        // FIX: Convert phone to number for database query
+        // Convert phone to number for database query
         const phoneNumber = Number(phone);
         console.log('Converted phone to number:', phoneNumber);
 
-        const selected=await SelectedCandidate.findOne({ phone: phoneNumber });
+        const selected = await SelectedCandidate.findOne({ phone: phoneNumber });
         console.log('Searching phone:', phoneNumber, typeof phoneNumber);
         console.log('Query result:', selected);
         console.log('=== DEBUG END ===');
 
-        if(!selected){
+        if (!selected) {
             return res.json({
-                message:'rejected'
+                message: 'No student found with this phone number.',
+                success: false
             });
         }
 
-        const storedName=selected.name;
-        const enteredName=req.body.name;
+        const storedName = selected.name;
+        const enteredName = req.body.name;
 
-        if(storedName.trim().toLowerCase()===enteredName.trim().toLowerCase()){
+        // Enhanced name matching with better logging
+        console.log('Name comparison:');
+        console.log('Stored name:', `"${storedName}"`);
+        console.log('Entered name:', `"${enteredName}"`);
+        console.log('After trim/lower - Stored:', `"${storedName.trim().toLowerCase()}"`);
+        console.log('After trim/lower - Entered:', `"${enteredName.trim().toLowerCase()}"`);
+
+        if (storedName.trim().toLowerCase() === enteredName.trim().toLowerCase()) {
             return res.json({
-                name,
-                message:'selected'
+                message: 'selected',
+                success: true,
+                student: {
+                    name: selected.name,
+                    phone: selected.phone,
+                    domains: selected.domains || [],
+                    email: selected.email || '',
+                    applicationId: selected.applicationId || ''
+                }
             });
-        }else{
+        } else {
             return res.status(400).json({
-                message:'entered Name does not match!',
-                success:false
+                message: 'Entered name does not match with the registered name.',
+                success: false
             });
         }
-    }catch(error){
+    } catch (error) {
         console.error(error);
         return res.status(500).json({
-            message:"Internal Server error.",
-            success:false
+            message: "Internal Server error.",
+            success: false
         });
     }
 }
